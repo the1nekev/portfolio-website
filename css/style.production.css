@@ -1,0 +1,278 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
+/* 
+Colors used
+Text Color (Dark Gray): #2b2b2b;
+Backgroud Color (Sky Blue): #d4e5f6;
+Visited Link (BlueViolet): #8a2be2;
+Link Hover (Alizarin Crimson): #e32636;
+Active Link (Castleton Green): #00563f;
+*/
+
+.profile-picture{
+    float:left;
+    width: 250px;
+    height: auto;
+    margin-right: 40px;
+    border-radius: 50%;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+.page-header{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    padding: 20px;
+}
+
+.page-header_item {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 1 50px;
+            flex: 0 1 50px;
+}
+
+.page-header_item:last-child {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    text-align: right;
+}
+
+.navigation-list {
+    list-style-type: none;
+}
+
+.navigation-list li{
+    display: inline-block;
+    margin-left: 15px;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    background-color: #d4e5f6;
+    color: #2b2b2b;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+h1 {
+    font-size: 30px;
+    font-weight: 700;
+}
+
+a {
+   color: #0000ff; 
+}
+
+a:visited{
+    color:#8a2be2;
+}
+a:hover, a:focus { 
+    /*No underlining when hovering over a link */
+    text-decoration: none;
+    color: #e32636;
+}
+
+a:active{
+    color: #00563f;
+}
+
+
+.button, button{
+    /* overwrites browser defaults and resets the border */
+    border: none;
+    display: inline-block;
+    font-family: inherit;
+    /* styles the button */
+    background-color: #357b70;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 3px;
+    /* width of the border, type, color */
+    border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+    -webkit-transition: 0.2s opacity;
+    -o-transition: 0.2s opacity;
+    transition: 0.2s opacity;
+}
+
+button:hover, 
+button:focus, 
+.button:hover, 
+.button:focus{
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+
+.profile-section{
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/*start grid fallback*/
+.grid_item{
+    display: inline-block;
+    width: 33%;
+}
+/*end grid fallback*/
+
+@supports (display: grid){
+    .grid{
+        display: -ms-grid;
+        display: grid;
+        -ms-grid-columns: 1fr 20px 1fr 20px 1fr;
+        grid-template-columns: 1fr 1fr 1fr ;
+        grid-gap: 20px;
+        padding: 10px;
+    }
+
+    .grid_item{
+        background-color: lightgray;
+        width: auto;
+        min-height: auto;
+        margin: 0;
+    }
+
+    .grid_item:last-child{
+        -ms-grid-column: 3;
+            grid-column-start: 3;
+        -ms-grid-column-span: 1;
+        grid-column-end: 4;
+        -ms-grid-row: 1;
+            grid-row-start: 1;
+        -ms-grid-row-span: 2;
+        grid-row-end: 3;
+    }
+}
+
+.page-footer{
+    clear:both;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    text-align: center;
+}
+
+/* keyframes used for transitions and  animations*/
+@-webkit-keyframes color-change {
+    0%{
+        fill: #edc655;
+    }
+    50% {
+        fill: #fcffad;
+    }
+    100% {
+        fill: #f76414;
+    }
+}
+@keyframes color-change {
+    0%{
+        fill: #edc655;
+    }
+    50% {
+        fill: #fcffad;
+    }
+    100% {
+        fill: #f76414;
+    }
+}
+
+@-webkit-keyframes cloud-move {
+    from {
+        -webkit-transform: translate(0, 50px);
+                transform: translate(0, 50px);
+    }
+    to {
+        -webkit-transform: translate(200px, 50px);
+                transform: translate(200px, 50px);
+    }
+}
+
+@keyframes cloud-move {
+    from {
+        -webkit-transform: translate(0, 50px);
+                transform: translate(0, 50px);
+    }
+    to {
+        -webkit-transform: translate(200px, 50px);
+                transform: translate(200px, 50px);
+    }
+}
+@-webkit-keyframes cloud-move-reverse {
+    from {
+        -webkit-transform: translate(446px, 48px);
+                transform: translate(446px, 48px);
+    }
+    to {
+        -webkit-transform: translate(100px, 48px);
+                transform: translate(100px, 48px);
+    }
+}
+@keyframes cloud-move-reverse {
+    from {
+        -webkit-transform: translate(446px, 48px);
+                transform: translate(446px, 48px);
+    }
+    to {
+        -webkit-transform: translate(100px, 48px);
+                transform: translate(100px, 48px);
+    }
+}
+
+/* selectors to activate animations*/
+.sun {
+    -webkit-animation: 4s color-change infinite alternate linear;
+            animation: 4s color-change infinite alternate linear;
+}
+
+.cloud-front {
+    -webkit-animation: 30s cloud-move infinite alternate linear;
+            animation: 30s cloud-move infinite alternate linear;
+}
+
+.cloud-back {
+    -webkit-animation: 34s cloud-move-reverse infinite alternate linear;
+            animation: 34s cloud-move-reverse infinite alternate linear;
+}
+
+/*Media Queries*/
+@media all and (max-width: 500px){
+    .grid{
+        -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    }
+}
+@media all and (min-width: 500px) and (max-width: 750px){
+    .grid{
+        -ms-grid-columns: 1fr 20px 1fr;
+        grid-template-columns: 1fr 1fr;
+}
+}
+@media all and (max-width: 750px) {
+    .grid{
+     grid-gap: 10px;
+    }
+    .grid_item:last-child{
+     grid-column: auto / auto;
+     grid-row: auto / auto;
+    }
+    h1{
+     font-size: 22px;
+    }
+ }
