@@ -1,0 +1,68 @@
+/* 
+Replace all colors with color variables.
+
+There should be a lighter and a darker version of the primary color, 
+which you should use as background-colors for the boxes (see class names).
+
+Add a :hover pseudo class to the boxes (in a nested style) 
+that removes the box-shadow on hover.
+
+Create a parent class (shared class defined with %) that gets 
+extended for all boxes and includes all the 
+properties that the boxes share.
+*/
+
+/*Variables*/
+$primaryBackgroundColor : #112055;
+$secondBackgroundColor: #4f9d92;
+$shadowColor: rgba(0,0,0,0.3);
+$primaryColor: #fff;
+$secondColor: #000;
+$primaryColorLighter: lighten($primaryBackgroundColor, 20%);
+$primaryColorDarker: darken($primaryBackgroundColor, 20%);
+
+.box__wrapper 
+{
+
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+    padding: 20px;
+    font-family: sans-serif;
+
+    %box-shared {
+        padding: 10px;
+        box-shadow: 4px 3px 19px 0px $shadowColor;
+        border-radius: 5px;
+    }
+
+    .box-primary{
+        @extend %box-shared;
+        background-color: $primaryBackgroundColor;
+        color: $primaryColor;
+
+        &:hover{
+            box-shadow: none;
+        }
+
+        &-lighter {
+            @extend .box-primary;
+            background-color: $primaryColorLighter;
+        }
+        &-darker {
+            @extend .box-primary;
+            background-color: $primaryColorDarker;
+        }
+    }
+    .box-secondary{
+        @extend %box-shared;
+        background-color: $secondBackgroundColor;
+        color: $secondColor;
+
+        &:hover{
+            box-shadow: none;
+        }
+
+    }
+}
